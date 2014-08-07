@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.7.1'
+    }
+}
+
+apply plugin: 'java'
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'co.fusionx:spotifymodel:+'
+
+    compile 'com.squareup.retrofit:retrofit:+'
+    compile 'com.google.guava:guava:+'
+
+    compile 'com.fasterxml.jackson.core:jackson-databind:+'
+    compile 'com.fasterxml.jackson.core:jackson-core:+'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:+'
+
+    testCompile 'junit:junit:+'
+    testCompile 'org.assertj:assertj-core:+'
+}
