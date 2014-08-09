@@ -35,180 +35,116 @@ public class AsyncWebClient implements AsyncClient {
 
     @Override
     public ListenableFuture<Album> getAlbum(final String albumId) {
-        return mExecutorService.submit(new Callable<Album>() {
-            @Override
-            public Album call() throws Exception {
-                return mSyncClient.getAlbum(albumId);
-            }
-        });
+        return mExecutorService.submit(() -> mSyncClient.getAlbum(albumId));
     }
 
     @Override
     public ListenableFuture<List<? extends Album>> getAlbums(final Collection<String> albumIds) {
-        return mExecutorService.submit(new Callable<List<? extends Album>>() {
-            @Override
-            public List<? extends Album> call() throws Exception {
-                return mSyncClient.getAlbums(albumIds);
-            }
-        });
+        final Callable<List<? extends Album>> callable = () -> mSyncClient.getAlbums(albumIds);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<PagingObject<? extends SimpleTrack>> getAlbumTracks(
             final String albumId) {
-        return mExecutorService.submit(new Callable<PagingObject<? extends SimpleTrack>>() {
-            @Override
-            public PagingObject<? extends SimpleTrack> call() throws Exception {
-                return mSyncClient.getAlbumTracks(albumId);
-            }
-        });
+        final Callable<PagingObject<? extends SimpleTrack>> callable =
+                () -> mSyncClient.getAlbumTracks(albumId);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<PagingObject<? extends SimpleTrack>> getAlbumTracks(
-            final String albumId,
-            final OptionalAlbumTracks tracks) {
-        return mExecutorService.submit(new Callable<PagingObject<? extends SimpleTrack>>() {
-            @Override
-            public PagingObject<? extends SimpleTrack> call() throws Exception {
-                return mSyncClient.getAlbumTracks(albumId, tracks);
-            }
-        });
+            final String albumId, final OptionalAlbumTracks tracks) {
+        final Callable<PagingObject<? extends SimpleTrack>> callable =
+                () -> mSyncClient.getAlbumTracks(albumId, tracks);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<Artist> getArtist(final String artistId) {
-        return mExecutorService.submit(new Callable<Artist>() {
-            @Override
-            public Artist call() throws Exception {
-                return mSyncClient.getArtist(artistId);
-            }
-        });
+        return mExecutorService.submit(() -> mSyncClient.getArtist(artistId));
     }
 
     @Override
     public ListenableFuture<List<? extends Artist>> getArtists(final Collection<String> artistIds) {
-        return mExecutorService.submit(new Callable<List<? extends Artist>>() {
-            @Override
-            public List<? extends Artist> call() throws Exception {
-                return mSyncClient.getArtists(artistIds);
-            }
-        });
+        final Callable<List<? extends Artist>> callable = () -> mSyncClient.getArtists(artistIds);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<PagingObject<? extends SimpleAlbum>> getArtistAlbums(
             final String artistId) {
-        return mExecutorService.submit(new Callable<PagingObject<? extends SimpleAlbum>>() {
-            @Override
-            public PagingObject<? extends SimpleAlbum> call() throws Exception {
-                return mSyncClient.getArtistAlbums(artistId);
-            }
-        });
+        final Callable<PagingObject<? extends SimpleAlbum>> callable =
+                () -> mSyncClient.getArtistAlbums(artistId);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<PagingObject<? extends SimpleAlbum>> getArtistAlbums(
             final String artistId,
             final OptionalArtistAlbums artistAlbums) {
-        return mExecutorService.submit(new Callable<PagingObject<? extends SimpleAlbum>>() {
-            @Override
-            public PagingObject<? extends SimpleAlbum> call() throws Exception {
-                return mSyncClient.getArtistAlbums(artistId, artistAlbums);
-            }
-        });
+        final Callable<PagingObject<? extends SimpleAlbum>> callable =
+                () -> mSyncClient.getArtistAlbums(artistId, artistAlbums);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<List<? extends Track>> getArtistTopTracks(final String artistId,
             final String country) {
-        return mExecutorService.submit(new Callable<List<? extends Track>>() {
-            @Override
-            public List<? extends Track> call() throws Exception {
-                return mSyncClient.getArtistTopTracks(artistId, country);
-            }
-        });
+        final Callable<List<? extends Track>> callable =
+                () -> mSyncClient.getArtistTopTracks(artistId, country);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<List<? extends Artist>> getRelatedArtists(final String artistId) {
-        return mExecutorService.submit(new Callable<List<? extends Artist>>() {
-            @Override
-            public List<? extends Artist> call() throws Exception {
-                return mSyncClient.getRelatedArtists(artistId);
-            }
-        });
+        final Callable<List<? extends Artist>> callable =
+                () -> mSyncClient.getRelatedArtists(artistId);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<Track> getTrack(final String id) {
-        return mExecutorService.submit(new Callable<Track>() {
-            @Override
-            public Track call() throws Exception {
-                return mSyncClient.getTrack(id);
-            }
-        });
+        return mExecutorService.submit(() -> mSyncClient.getTrack(id));
     }
 
     @Override
     public ListenableFuture<List<? extends Track>> getTracks(final Collection<String> ids) {
-        return mExecutorService.submit(new Callable<List<? extends Track>>() {
-            @Override
-            public List<? extends Track> call() throws Exception {
-                return mSyncClient.getTracks(ids);
-            }
-        });
+        final Callable<List<? extends Track>> callable =
+                () -> mSyncClient.getTracks(ids);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<PagingObject<? extends Artist>> searchArtist(final String artist) {
-        return mExecutorService.submit(new Callable<PagingObject<? extends Artist>>() {
-            @Override
-            public PagingObject<? extends Artist> call() throws Exception {
-                return mSyncClient.searchArtist(artist);
-            }
-        });
+        final Callable<PagingObject<? extends Artist>> callable =
+                () -> mSyncClient.searchArtist(artist);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<PagingObject<? extends SimpleAlbum>> searchAlbum(final String album) {
-        return mExecutorService.submit(new Callable<PagingObject<? extends SimpleAlbum>>() {
-            @Override
-            public PagingObject<? extends SimpleAlbum> call() throws Exception {
-                return mSyncClient.searchAlbum(album);
-            }
-        });
+        final Callable<PagingObject<? extends SimpleAlbum>> callable =
+                () -> mSyncClient.searchAlbum(album);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<PagingObject<? extends SimpleTrack>> searchTrack(final String track) {
-        return mExecutorService.submit(new Callable<PagingObject<? extends SimpleTrack>>() {
-            @Override
-            public PagingObject<? extends SimpleTrack> call() throws Exception {
-                return mSyncClient.searchTrack(track);
-            }
-        });
+        final Callable<PagingObject<? extends SimpleTrack>> callable =
+                () -> mSyncClient.searchTrack(track);
+        return mExecutorService.submit(callable);
     }
 
     @Override
     public ListenableFuture<SearchResult> search(final String query,
             final Collection<OptionalSearch.SearchType> types) {
-        return mExecutorService.submit(new Callable<SearchResult>() {
-            @Override
-            public SearchResult call() throws Exception {
-                return mSyncClient.search(query, types);
-            }
-        });
+        return mExecutorService.submit(() -> mSyncClient.search(query, types));
     }
 
     @Override
     public ListenableFuture<SearchResult> search(final String query,
             final Collection<OptionalSearch.SearchType> types, final OptionalSearch search) {
-        return mExecutorService.submit(new Callable<SearchResult>() {
-            @Override
-            public SearchResult call() throws Exception {
-                return mSyncClient.search(query, types, search);
-            }
-        });
+        return mExecutorService.submit(() -> mSyncClient.search(query, types, search));
     }
 }

@@ -22,7 +22,8 @@ public interface AsyncClient {
 
     public ListenableFuture<List<? extends Album>> getAlbums(final Collection<String> albumIds);
 
-    public ListenableFuture<PagingObject<? extends SimpleTrack>> getAlbumTracks(final String albumId);
+    public ListenableFuture<PagingObject<? extends SimpleTrack>> getAlbumTracks(
+            final String albumId);
 
     public ListenableFuture<PagingObject<? extends SimpleTrack>> getAlbumTracks(String albumId,
             OptionalAlbumTracks tracks);
@@ -31,10 +32,11 @@ public interface AsyncClient {
 
     public ListenableFuture<List<? extends Artist>> getArtists(final Collection<String> artistIds);
 
-    public ListenableFuture<PagingObject<? extends SimpleAlbum>> getArtistAlbums(final String artistId);
+    public ListenableFuture<PagingObject<? extends SimpleAlbum>> getArtistAlbums(
+            final String artistId);
 
-    public ListenableFuture<PagingObject<? extends SimpleAlbum>> getArtistAlbums(final String artistId,
-            final OptionalArtistAlbums artistAlbums);
+    public ListenableFuture<PagingObject<? extends SimpleAlbum>> getArtistAlbums(
+            final String artistId, final OptionalArtistAlbums artistAlbums);
 
     public ListenableFuture<List<? extends Track>> getArtistTopTracks(final String artistId,
             final String country);
