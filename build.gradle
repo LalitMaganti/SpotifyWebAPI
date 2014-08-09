@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    compile 'co.fusionx:spotifymodel:+'
+    compile 'co.fusionx.spotify:spotify-model:1.0.0'
 
     compile 'com.squareup.retrofit:retrofit:+'
     compile 'com.google.guava:guava:+'

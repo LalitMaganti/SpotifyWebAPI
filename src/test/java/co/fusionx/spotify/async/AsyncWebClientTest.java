@@ -25,7 +25,6 @@ public class AsyncWebClientTest {
             @Override
             public void onSuccess(final Album album) {
                 assertThat(album.getName()).isEqualTo("x (Deluxe Edition)");
-                assertThat(false).isTrue();
             }
 
             @Override
